@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AimForge – Login Callback</title>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#0b0f17;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    flex-direction:column;
+}
+h1{color:#ff4655}
+code{
+    background:rgba(0,0,0,.4);
+    padding:6px 12px;
+    border-radius:8px;
+}
+</style>
+</head>
+<body>
+
+<h1>Authenticating...</h1>
+<p>If login was successful, you will be redirected shortly.</p>
+
+<script>
+// OAuth code extraction
+const params = new URLSearchParams(window.location.search);
+const code = params.get("code");
+
+if(code){
+    document.body.innerHTML = `
+        <h1>Login Successful</h1>
+        <p>Authorization code received:</p>
+        <code>${code}</code>
+        <p>Backend token exchange will be implemented next.</p>
+    `;
+}else{
+    document.body.innerHTML = `
+        <h1>No Authorization Code</h1>
+        <p>This page is used as an OAuth callback endpoint.</p>
+    `;
+}
+</script>
+
+</body>
+</html>
