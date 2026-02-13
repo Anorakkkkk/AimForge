@@ -99,3 +99,43 @@ function estimateDays(current, target, growth) {
 
     return Math.ceil(gap / progressPerDay);
 }
+// =============================
+// Skill Trend Analyzer
+// =============================
+
+export function analyzeTrend(history) {
+
+    if (!history || history.length < 3) {
+        return { trend: "insufficient_data" };
+    }
+
+    const slope = calculateSlope(history);
+
+    if (slope > 5) {
+        return { trend: "accelerating", score: round(slope) };
+    }
+
+    if (slope > 1) {
+        return { trend: "improving", score: round(slope) };
+    }
+
+    if (slope < -3) {
+        return { trend: "declining", score: round(slope) };
+    }
+
+    return { trend: "stable", score: round(slope) };
+}
+
+function calculateSlope(values) {
+    const n = values.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+
+    for (let i = 0; i < n; i++) {
+        sumX += i;
+        sumY += values[i];
+        sumXY += i * values[i];
+        sumXX += i * i;
+    }
+
+    return (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+}
