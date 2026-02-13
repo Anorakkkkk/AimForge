@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valorant Global Skill Index</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f1923;
+            color: white;
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background: #1f2731;
+        }
+
+        tr:hover {
+            background: #1a222c;
+        }
+
+        .gsi {
+            color: #ff4655;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Valorant Global Skill Index</h1>
+
+<table id="leaderboard">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>RR</th>
+            <th>Wins</th>
+            <th>GSI</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+fetch("http://127.0.0.1:8000/leaderboard?size=20")
+    .then(res => res.json())
+    .then(data => {
+        const tbody = document.querySelector("#leaderboard tbody");
+
+        data.players.forEach((p, index) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${p.gameName}#${p.tagLine}</td>
+                <td>${p.rankedRating}</td>
+                <td>${p.wins}</td>
+                <td class="gsi">${p.gsi}</td>
+            `;
+
+            tbody.appendChild(row);
+        });
+    });
+</script>
+
+</body>
+</html>
