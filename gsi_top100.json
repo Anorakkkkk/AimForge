@@ -1,0 +1,802 @@
+[
+  {
+    "gameName": "EP kozzy",
+    "tagLine": "1of1",
+    "rankedRating": 1004,
+    "wins": 106,
+    "gsi": 1105.47,
+    "leaderboardRank": 1
+  },
+  {
+    "gameName": "FOKUS Pa1ze",
+    "tagLine": "TTV",
+    "rankedRating": 943,
+    "wins": 128,
+    "gsi": 1048.53,
+    "leaderboardRank": 2
+  },
+  {
+    "gameName": "MISA BadreX",
+    "tagLine": "finoo",
+    "rankedRating": 934,
+    "wins": 80,
+    "gsi": 1029.42,
+    "leaderboardRank": 3
+  },
+  {
+    "gameName": "MercureFPS",
+    "tagLine": "GRIND",
+    "rankedRating": 919,
+    "wins": 137,
+    "gsi": 1025.99,
+    "leaderboardRank": 5
+  },
+  {
+    "gameName": "mago",
+    "tagLine": "elina",
+    "rankedRating": 926,
+    "wins": 67,
+    "gsi": 1017.63,
+    "leaderboardRank": 4
+  },
+  {
+    "gameName": "krish final boss",
+    "tagLine": "back",
+    "rankedRating": 910,
+    "wins": 82,
+    "gsi": 1005.95,
+    "leaderboardRank": 6
+  },
+  {
+    "gameName": "hiro",
+    "tagLine": "luna",
+    "rankedRating": 897,
+    "wins": 81,
+    "gsi": 992.69,
+    "leaderboardRank": 7
+  },
+  {
+    "gameName": "GMX Frac",
+    "tagLine": "nina",
+    "rankedRating": 878,
+    "wins": 83,
+    "gsi": 974.21,
+    "leaderboardRank": 8
+  },
+  {
+    "gameName": "scelzer",
+    "tagLine": "999",
+    "rankedRating": 874,
+    "wins": 95,
+    "gsi": 973.11,
+    "leaderboardRank": 10
+  },
+  {
+    "gameName": "GL hAwksinho",
+    "tagLine": "masia",
+    "rankedRating": 876,
+    "wins": 57,
+    "gsi": 964.17,
+    "leaderboardRank": 9
+  },
+  {
+    "gameName": "Ascend",
+    "tagLine": "Sub5",
+    "rankedRating": 862,
+    "wins": 105,
+    "gsi": 963.27,
+    "leaderboardRank": 11
+  },
+  {
+    "gameName": "KC LewN",
+    "tagLine": "ZENA",
+    "rankedRating": 861,
+    "wins": 65,
+    "gsi": 951.98,
+    "leaderboardRank": 12
+  },
+  {
+    "gameName": "G2 Akita",
+    "tagLine": "mint",
+    "rankedRating": 848,
+    "wins": 85,
+    "gsi": 944.72,
+    "leaderboardRank": 14
+  },
+  {
+    "gameName": "6GPA koshmaras",
+    "tagLine": "006",
+    "rankedRating": 837,
+    "wins": 119,
+    "gsi": 940.96,
+    "leaderboardRank": 17
+  },
+  {
+    "gameName": "Robocop",
+    "tagLine": "CHN",
+    "rankedRating": 851,
+    "wins": 58,
+    "gsi": 939.54,
+    "leaderboardRank": 13
+  },
+  {
+    "gameName": "KC avez",
+    "tagLine": "nunu",
+    "rankedRating": 844,
+    "wins": 72,
+    "gsi": 937.17,
+    "leaderboardRank": 15
+  },
+  {
+    "gameName": "TH ComeBack",
+    "tagLine": "Aegon",
+    "rankedRating": 841,
+    "wins": 75,
+    "gsi": 935.04,
+    "leaderboardRank": 16
+  },
+  {
+    "gameName": "COLORS Neptunee",
+    "tagLine": "icy",
+    "rankedRating": 832,
+    "wins": 82,
+    "gsi": 927.95,
+    "leaderboardRank": 18
+  },
+  {
+    "gameName": "lowless",
+    "tagLine": "111",
+    "rankedRating": 807,
+    "wins": 159,
+    "gsi": 917.21,
+    "leaderboardRank": 23
+  },
+  {
+    "gameName": "TH Wo0t",
+    "tagLine": "Limon",
+    "rankedRating": 825,
+    "wins": 67,
+    "gsi": 916.63,
+    "leaderboardRank": 19
+  },
+  {
+    "gameName": "Mewwbu",
+    "tagLine": "Sandy",
+    "rankedRating": 815,
+    "wins": 106,
+    "gsi": 916.47,
+    "leaderboardRank": 21
+  },
+  {
+    "gameName": "mas4kirk",
+    "tagLine": "0001",
+    "rankedRating": 816,
+    "wins": 69,
+    "gsi": 908.25,
+    "leaderboardRank": 20
+  },
+  {
+    "gameName": "Yehia",
+    "tagLine": "3ebs",
+    "rankedRating": 809,
+    "wins": 95,
+    "gsi": 908.11,
+    "leaderboardRank": 22
+  },
+  {
+    "gameName": "envex",
+    "tagLine": "gud",
+    "rankedRating": 801,
+    "wins": 121,
+    "gsi": 905.32,
+    "leaderboardRank": 25
+  },
+  {
+    "gameName": "Javelin",
+    "tagLine": "kaban",
+    "rankedRating": 800,
+    "wins": 85,
+    "gsi": 896.72,
+    "leaderboardRank": 26
+  },
+  {
+    "gameName": "RQM Fezisss",
+    "tagLine": "TTV",
+    "rankedRating": 795,
+    "wins": 100,
+    "gsi": 895.22,
+    "leaderboardRank": 29
+  },
+  {
+    "gameName": "GX ara",
+    "tagLine": "nvm",
+    "rankedRating": 801,
+    "wins": 73,
+    "gsi": 894.46,
+    "leaderboardRank": 24
+  },
+  {
+    "gameName": "lllllIllIIIlIlll",
+    "tagLine": "xyz",
+    "rankedRating": 795,
+    "wins": 85,
+    "gsi": 891.72,
+    "leaderboardRank": 28
+  },
+  {
+    "gameName": "GX westside",
+    "tagLine": "uwu",
+    "rankedRating": 794,
+    "wins": 74,
+    "gsi": 887.75,
+    "leaderboardRank": 30
+  },
+  {
+    "gameName": "Kolosha",
+    "tagLine": "7697",
+    "rankedRating": 796,
+    "wins": 54,
+    "gsi": 883.02,
+    "leaderboardRank": 27
+  },
+  {
+    "gameName": "ULF s0pp",
+    "tagLine": "tyshi",
+    "rankedRating": 773,
+    "wins": 85,
+    "gsi": 869.72,
+    "leaderboardRank": 31
+  },
+  {
+    "gameName": "xFaZexReZx",
+    "tagLine": "REZ",
+    "rankedRating": 756,
+    "wins": 126,
+    "gsi": 861.19,
+    "leaderboardRank": 36
+  },
+  {
+    "gameName": "EP MAGNUM",
+    "tagLine": "rawr",
+    "rankedRating": 764,
+    "wins": 85,
+    "gsi": 860.72,
+    "leaderboardRank": 33
+  },
+  {
+    "gameName": "TH aimDLL",
+    "tagLine": "xXxX",
+    "rankedRating": 766,
+    "wins": 73,
+    "gsi": 859.46,
+    "leaderboardRank": 32
+  },
+  {
+    "gameName": "TITOUNE 777",
+    "tagLine": "BOSS",
+    "rankedRating": 759,
+    "wins": 93,
+    "gsi": 857.66,
+    "leaderboardRank": 35
+  },
+  {
+    "gameName": "Sp1ke",
+    "tagLine": "SKK",
+    "rankedRating": 760,
+    "wins": 86,
+    "gsi": 856.98,
+    "leaderboardRank": 34
+  },
+  {
+    "gameName": "NøHëlp",
+    "tagLine": "zys",
+    "rankedRating": 755,
+    "wins": 77,
+    "gsi": 849.6,
+    "leaderboardRank": 37
+  },
+  {
+    "gameName": "Neo1",
+    "tagLine": "VIT",
+    "rankedRating": 742,
+    "wins": 126,
+    "gsi": 847.19,
+    "leaderboardRank": 43
+  },
+  {
+    "gameName": "etnaa",
+    "tagLine": "cold",
+    "rankedRating": 744,
+    "wins": 109,
+    "gsi": 846.07,
+    "leaderboardRank": 41
+  },
+  {
+    "gameName": "ddps38801 sw fg",
+    "tagLine": "900",
+    "rankedRating": 748,
+    "wins": 71,
+    "gsi": 840.87,
+    "leaderboardRank": 38
+  },
+  {
+    "gameName": "SGE Fizzy",
+    "tagLine": "fizz",
+    "rankedRating": 744,
+    "wins": 85,
+    "gsi": 840.72,
+    "leaderboardRank": 42
+  },
+  {
+    "gameName": "SGE Jamelinho",
+    "tagLine": "213",
+    "rankedRating": 746,
+    "wins": 75,
+    "gsi": 840.04,
+    "leaderboardRank": 39
+  },
+  {
+    "gameName": "SGE MONSTEERR",
+    "tagLine": "Inori",
+    "rankedRating": 741,
+    "wins": 94,
+    "gsi": 839.89,
+    "leaderboardRank": 44
+  },
+  {
+    "gameName": "M8 Marti",
+    "tagLine": "1586",
+    "rankedRating": 739,
+    "wins": 97,
+    "gsi": 838.56,
+    "leaderboardRank": 45
+  },
+  {
+    "gameName": "AsLanMashadWW",
+    "tagLine": "AsLan",
+    "rankedRating": 733,
+    "wins": 98,
+    "gsi": 832.78,
+    "leaderboardRank": 47
+  },
+  {
+    "gameName": "TH RieNs",
+    "tagLine": "TURK",
+    "rankedRating": 739,
+    "wins": 66,
+    "gsi": 830.3,
+    "leaderboardRank": 46
+  },
+  {
+    "gameName": "striker",
+    "tagLine": "boop",
+    "rankedRating": 728,
+    "wins": 108,
+    "gsi": 829.87,
+    "leaderboardRank": 48
+  },
+  {
+    "gameName": "SULTAN x Tino",
+    "tagLine": "zZzZ",
+    "rankedRating": 746,
+    "wins": 46,
+    "gsi": 829.6,
+    "leaderboardRank": 40
+  },
+  {
+    "gameName": "Lusadris",
+    "tagLine": "ddddd",
+    "rankedRating": 722,
+    "wins": 114,
+    "gsi": 825.03,
+    "leaderboardRank": 49
+  },
+  {
+    "gameName": "KPI SebZzdeus",
+    "tagLine": "0118",
+    "rankedRating": 720,
+    "wins": 108,
+    "gsi": 821.87,
+    "leaderboardRank": 54
+  },
+  {
+    "gameName": "estêvão",
+    "tagLine": "chris",
+    "rankedRating": 719,
+    "wins": 97,
+    "gsi": 818.56,
+    "leaderboardRank": 55
+  },
+  {
+    "gameName": "Sñαpsτẹrito",
+    "tagLine": "TTV",
+    "rankedRating": 699,
+    "wins": 199,
+    "gsi": 814.05,
+    "leaderboardRank": 73
+  },
+  {
+    "gameName": "troxy",
+    "tagLine": "void",
+    "rankedRating": 720,
+    "wins": 74,
+    "gsi": 813.75,
+    "leaderboardRank": 52
+  },
+  {
+    "gameName": "ZEIIS",
+    "tagLine": "dXdX",
+    "rankedRating": 717,
+    "wins": 78,
+    "gsi": 811.88,
+    "leaderboardRank": 56
+  },
+  {
+    "gameName": "TOYOTA CAMRY",
+    "tagLine": "aru",
+    "rankedRating": 720,
+    "wins": 67,
+    "gsi": 811.63,
+    "leaderboardRank": 53
+  },
+  {
+    "gameName": "Bashk1r",
+    "tagLine": "marik",
+    "rankedRating": 710,
+    "wins": 106,
+    "gsi": 811.47,
+    "leaderboardRank": 62
+  },
+  {
+    "gameName": "Anq",
+    "tagLine": "awe",
+    "rankedRating": 711,
+    "wins": 96,
+    "gsi": 810.34,
+    "leaderboardRank": 60
+  },
+  {
+    "gameName": "WIP         Yuta",
+    "tagLine": "SSJ",
+    "rankedRating": 715,
+    "wins": 73,
+    "gsi": 808.46,
+    "leaderboardRank": 57
+  },
+  {
+    "gameName": "最烦女人哭",
+    "tagLine": "1125",
+    "rankedRating": 714,
+    "wins": 75,
+    "gsi": 808.04,
+    "leaderboardRank": 58
+  },
+  {
+    "gameName": "ada",
+    "tagLine": "1128",
+    "rankedRating": 713,
+    "wins": 74,
+    "gsi": 806.75,
+    "leaderboardRank": 59
+  },
+  {
+    "gameName": "FMG hydro",
+    "tagLine": "ARISE",
+    "rankedRating": 710,
+    "wins": 85,
+    "gsi": 806.72,
+    "leaderboardRank": 61
+  },
+  {
+    "gameName": "Filu",
+    "tagLine": "KING",
+    "rankedRating": 709,
+    "wins": 89,
+    "gsi": 806.71,
+    "leaderboardRank": 63
+  },
+  {
+    "gameName": "V1 winter",
+    "tagLine": "kul",
+    "rankedRating": 701,
+    "wins": 116,
+    "gsi": 804.41,
+    "leaderboardRank": 68
+  },
+  {
+    "gameName": "Manhwa main hero",
+    "tagLine": "thn",
+    "rankedRating": 707,
+    "wins": 80,
+    "gsi": 802.42,
+    "leaderboardRank": 66
+  },
+  {
+    "gameName": "BoBerツ",
+    "tagLine": "Kurw4",
+    "rankedRating": 720,
+    "wins": 41,
+    "gsi": 801.16,
+    "leaderboardRank": 50
+  },
+  {
+    "gameName": "SCARFACE",
+    "tagLine": "EMP",
+    "rankedRating": 720,
+    "wins": 39,
+    "gsi": 800.1,
+    "leaderboardRank": 51
+  },
+  {
+    "gameName": "neqa",
+    "tagLine": "vain",
+    "rankedRating": 695,
+    "wins": 124,
+    "gsi": 799.85,
+    "leaderboardRank": 75
+  },
+  {
+    "gameName": "caksin",
+    "tagLine": "00000",
+    "rankedRating": 700,
+    "wins": 98,
+    "gsi": 799.78,
+    "leaderboardRank": 70
+  },
+  {
+    "gameName": "JL Doma",
+    "tagLine": "sumn",
+    "rankedRating": 708,
+    "wins": 64,
+    "gsi": 798.65,
+    "leaderboardRank": 65
+  },
+  {
+    "gameName": "niwt",
+    "tagLine": "147",
+    "rankedRating": 700,
+    "wins": 82,
+    "gsi": 795.95,
+    "leaderboardRank": 71
+  },
+  {
+    "gameName": "sorcery",
+    "tagLine": "god",
+    "rankedRating": 700,
+    "wins": 82,
+    "gsi": 795.95,
+    "leaderboardRank": 72
+  },
+  {
+    "gameName": "hoody",
+    "tagLine": "snm",
+    "rankedRating": 708,
+    "wins": 47,
+    "gsi": 792.06,
+    "leaderboardRank": 64
+  },
+  {
+    "gameName": "russz",
+    "tagLine": "1982",
+    "rankedRating": 685,
+    "wins": 135,
+    "gsi": 791.68,
+    "leaderboardRank": 85
+  },
+  {
+    "gameName": "M8 glyph",
+    "tagLine": "ess",
+    "rankedRating": 702,
+    "wins": 60,
+    "gsi": 791.27,
+    "leaderboardRank": 67
+  },
+  {
+    "gameName": "Dollby",
+    "tagLine": "LUFFY",
+    "rankedRating": 687,
+    "wins": 115,
+    "gsi": 790.22,
+    "leaderboardRank": 81
+  },
+  {
+    "gameName": "Wonder",
+    "tagLine": "00z",
+    "rankedRating": 681,
+    "wins": 131,
+    "gsi": 787.03,
+    "leaderboardRank": 88
+  },
+  {
+    "gameName": "blessing it",
+    "tagLine": "scaih",
+    "rankedRating": 693,
+    "wins": 73,
+    "gsi": 786.46,
+    "leaderboardRank": 77
+  },
+  {
+    "gameName": "narky poo",
+    "tagLine": "000",
+    "rankedRating": 700,
+    "wins": 50,
+    "gsi": 785.38,
+    "leaderboardRank": 69
+  },
+  {
+    "gameName": "hahaxoxo",
+    "tagLine": "007",
+    "rankedRating": 673,
+    "wins": 150,
+    "gsi": 781.95,
+    "leaderboardRank": 93
+  },
+  {
+    "gameName": "MiniDLL",
+    "tagLine": "Erin",
+    "rankedRating": 690,
+    "wins": 68,
+    "gsi": 781.94,
+    "leaderboardRank": 79
+  },
+  {
+    "gameName": "B3an",
+    "tagLine": "0000",
+    "rankedRating": 695,
+    "wins": 49,
+    "gsi": 779.95,
+    "leaderboardRank": 74
+  },
+  {
+    "gameName": "CLS Jake愛",
+    "tagLine": "Grass",
+    "rankedRating": 684,
+    "wins": 76,
+    "gsi": 778.32,
+    "leaderboardRank": 86
+  },
+  {
+    "gameName": "yetu",
+    "tagLine": "star",
+    "rankedRating": 694,
+    "wins": 46,
+    "gsi": 777.6,
+    "leaderboardRank": 76
+  },
+  {
+    "gameName": "martin97",
+    "tagLine": "new",
+    "rankedRating": 680,
+    "wins": 83,
+    "gsi": 776.21,
+    "leaderboardRank": 89
+  },
+  {
+    "gameName": "Bjorn",
+    "tagLine": "MMA",
+    "rankedRating": 685,
+    "wins": 64,
+    "gsi": 775.65,
+    "leaderboardRank": 84
+  },
+  {
+    "gameName": "puppy boy",
+    "tagLine": "aim",
+    "rankedRating": 690,
+    "wins": 50,
+    "gsi": 775.38,
+    "leaderboardRank": 80
+  },
+  {
+    "gameName": "suby",
+    "tagLine": "d4ddy",
+    "rankedRating": 692,
+    "wins": 45,
+    "gsi": 775.14,
+    "leaderboardRank": 78
+  },
+  {
+    "gameName": "Liquid paTiTek",
+    "tagLine": "1108",
+    "rankedRating": 679,
+    "wins": 81,
+    "gsi": 774.69,
+    "leaderboardRank": 90
+  },
+  {
+    "gameName": "Jaira",
+    "tagLine": "Pame",
+    "rankedRating": 683,
+    "wins": 67,
+    "gsi": 774.63,
+    "leaderboardRank": 87
+  },
+  {
+    "gameName": "ViiZiionZzz",
+    "tagLine": "DBD",
+    "rankedRating": 679,
+    "wins": 66,
+    "gsi": 770.3,
+    "leaderboardRank": 91
+  },
+  {
+    "gameName": "ULF d3mur",
+    "tagLine": "3131",
+    "rankedRating": 670,
+    "wins": 100,
+    "gsi": 770.22,
+    "leaderboardRank": 96
+  },
+  {
+    "gameName": "neyoo le raccoon",
+    "tagLine": "hanae",
+    "rankedRating": 672,
+    "wins": 88,
+    "gsi": 769.47,
+    "leaderboardRank": 94
+  },
+  {
+    "gameName": "eternal sunshine",
+    "tagLine": "aimer",
+    "rankedRating": 685,
+    "wins": 44,
+    "gsi": 767.66,
+    "leaderboardRank": 83
+  },
+  {
+    "gameName": "Vir9ine",
+    "tagLine": "тгк",
+    "rankedRating": 677,
+    "wins": 58,
+    "gsi": 765.54,
+    "leaderboardRank": 92
+  },
+  {
+    "gameName": "Liquid nAts",
+    "tagLine": "TATAR",
+    "rankedRating": 686,
+    "wins": 35,
+    "gsi": 763.82,
+    "leaderboardRank": 82
+  },
+  {
+    "gameName": "GG Yuno",
+    "tagLine": "Lnop",
+    "rankedRating": 669,
+    "wins": 72,
+    "gsi": 762.17,
+    "leaderboardRank": 99
+  },
+  {
+    "gameName": "Liquid GSR",
+    "tagLine": "2323",
+    "rankedRating": 668,
+    "wins": 64,
+    "gsi": 758.65,
+    "leaderboardRank": 100
+  },
+  {
+    "gameName": "Isot",
+    "tagLine": "Vita",
+    "rankedRating": 669,
+    "wins": 57,
+    "gsi": 757.17,
+    "leaderboardRank": 98
+  },
+  {
+    "gameName": "GL krejz",
+    "tagLine": "999",
+    "rankedRating": 670,
+    "wins": 51,
+    "gsi": 755.8,
+    "leaderboardRank": 95
+  },
+  {
+    "gameName": "Wanlast",
+    "tagLine": "TYBW",
+    "rankedRating": 669,
+    "wins": 49,
+    "gsi": 753.95,
+    "leaderboardRank": 97
+  }
+]
