@@ -1,439 +1,283 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AimForge — Performance Insights (EU Demo)</title>
-
   <style>
     :root{
-      --bg0:#070b12;
-      --bg1:#0b1020;
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
-      --stroke: rgba(255,255,255,.12);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.65);
-      --brand1:#ff2d55;
-      --brand2:#7c3aed;
-      --brand3:#22c55e;
+      --bg0:#0f1115;
+      --bg1:#121622;
+      --card:#171a21;
+      --card2:#1d2230;
+      --stroke:rgba(255,255,255,.08);
+      --text:#e6e9ef;
+      --muted:#9aa3b2;
+      --accent:#ff4655; /* use sparingly */
       --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --radius: 22px;
+      --radius: 18px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.28), transparent 55%),
-        radial-gradient(900px 600px at 85% 15%, rgba(255,45,85,.25), transparent 55%),
-        radial-gradient(1000px 700px at 40% 110%, rgba(34,197,94,.18), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-      cursor:none; /* custom cursor */
+      background: radial-gradient(1200px 700px at 20% 0%, rgba(255,70,85,.06), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
     }
-
-    /* custom cursor */
-    .cursor, .cursor-dot{
-      position: fixed;
-      top:0; left:0;
-      pointer-events:none;
-      z-index:9999;
-      transform: translate(-50%,-50%);
-      mix-blend-mode: screen;
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1100px, 92vw); margin: 22px auto 70px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding: 14px 14px;
+      border:1px solid var(--stroke); border-radius: var(--radius);
+      background: rgba(23,26,33,.72);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
-    .cursor{
-      width: 42px; height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: radial-gradient(circle at 30% 30%, rgba(255,45,85,.20), rgba(124,58,237,.10), transparent 60%);
-      box-shadow: 0 0 40px rgba(255,45,85,.18);
-      transition: width .15s ease, height .15s ease, border-color .15s ease, background .15s ease;
-      backdrop-filter: blur(6px);
-    }
-    .cursor-dot{
-      width: 8px; height: 8px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--brand1), var(--brand2));
-      box-shadow: 0 0 22px rgba(255,45,85,.35);
-    }
-    .cursor.is-hover{
-      width: 64px; height: 64px;
-      border-color: rgba(255,255,255,.26);
-      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.18), rgba(124,58,237,.12), transparent 62%);
-    }
-
-    .wrap{
-      width:min(1100px, 92vw);
-      margin: 28px auto 70px;
-    }
-
-    header{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:18px;
-      margin-bottom:18px;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .logo{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-    }
+    .brand{display:flex; align-items:center; gap:12px;}
     .mark{
-      width:42px; height:42px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,45,85,.95), rgba(124,58,237,.75), rgba(34,197,94,.35));
-      box-shadow: 0 14px 40px rgba(255,45,85,.18);
-      border:1px solid rgba(255,255,255,.18);
+      width:34px; height:34px; border-radius: 12px;
+      background: var(--accent);
+      box-shadow: 0 10px 30px rgba(255,70,85,.18);
     }
-    h1{
-      margin:0;
-      font-size: clamp(22px, 2.4vw, 30px);
-      letter-spacing: .2px;
-      line-height: 1.15;
+    .brand .name{font-weight:800; letter-spacing:.2px}
+    .brand .sub{font-size:12px; color:var(--muted); margin-top:2px}
+    .nav{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      font-size:13px; color:var(--muted);
     }
-    .sub{
-      margin:0;
-      color:var(--muted);
-      max-width: 62ch;
-      font-size: 14px;
-      line-height: 1.5;
+    .nav a{
+      padding:8px 10px; border-radius: 12px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{border-color: var(--stroke); color:var(--text); background: rgba(255,255,255,.03)}
+    .btn{
+      padding:9px 12px; border-radius: 12px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size:13px;
+    }
+    .btn:hover{background: rgba(255,255,255,.06)}
+    .btn.primary{
+      border-color: rgba(255,70,85,.25);
+      background: rgba(255,70,85,.10);
     }
 
-    .pillbar{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:10px;
+    .hero{margin: 22px 2px 14px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-end;}
+    h1{margin:0; font-size:32px; letter-spacing:.2px}
+    .lead{margin:8px 0 0; color: var(--muted); line-height: 1.55; max-width: 72ch;}
+    .metaRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+    .chip{
+      font-size:12px; color: var(--muted);
+      padding:6px 10px; border-radius: 999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
     }
-    .pill{
-      font-size:12px;
-      color: rgba(255,255,255,.78);
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      padding:6px 10px;
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
+    .grid{
+      display:grid; grid-template-columns: 1fr 1fr 1fr;
+      gap:12px; margin: 14px 0;
     }
-    .pill strong{color: rgba(255,255,255,.92); font-weight:600}
-
+    @media (max-width: 940px){ .grid{grid-template-columns:1fr} }
     .card{
-      background: var(--card);
-      border: 1px solid var(--stroke);
+      background: rgba(23,26,33,.72);
+      border:1px solid var(--stroke);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      overflow:hidden;
+      backdrop-filter: blur(10px);
+      padding: 14px 14px;
     }
+    .klabel{font-size:12px; color: var(--muted); text-transform:uppercase; letter-spacing:.12em}
+    .kval{margin-top:8px; font-size:22px; font-weight:800}
+    .kval.accent{color: var(--accent)}
+    .kdesc{margin-top:8px; color: var(--muted); font-size:13px; line-height:1.5}
+
+    .sectionTitle{margin: 18px 2px 10px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center}
+    .sectionTitle h2{margin:0; font-size:16px; letter-spacing:.2px}
+    .sectionTitle .small{color: var(--muted); font-size:13px}
 
     .controls{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      padding: 14px 14px;
-      border-bottom: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      display:flex; gap:10px; flex-wrap:wrap;
+      padding: 12px;
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      background: rgba(23,26,33,.72);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
-
-    .input{
+    .search{
       flex: 1 1 260px;
-      display:flex;
-      gap:10px;
-      align-items:center;
+      display:flex; align-items:center; gap:10px;
       padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.20);
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
     }
-    .input input{
-      width:100%;
-      border:0;
-      outline:none;
-      background:transparent;
-      color:var(--text);
-      font-size:14px;
+    .search input{
+      width:100%; border:0; outline:none; background:transparent;
+      color: var(--text); font-size: 14px;
     }
-    .input input::placeholder{color: rgba(255,255,255,.45)}
-    .btn{
-      flex: 0 0 auto;
-      padding: 10px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.86);
-      font-size: 13px;
-      cursor: none;
-      user-select:none;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    .search input::placeholder{color: rgba(154,163,178,.8)}
+    .tablewrap{
+      margin-top: 10px;
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      overflow:auto;
+      background: rgba(23,26,33,.72);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.18);
-    }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(255,45,85,.95), rgba(124,58,237,.85));
-      border-color: rgba(255,255,255,.14);
-    }
-
-    .tablewrap{overflow:auto}
-    table{
-      width:100%;
-      border-collapse: collapse;
-      min-width: 820px;
-    }
+    table{width:100%; border-collapse: collapse; min-width: 820px;}
     thead th{
       text-align:left;
       font-size:12px;
       letter-spacing:.12em;
       text-transform:uppercase;
-      color: rgba(255,255,255,.62);
+      color: var(--muted);
       padding: 14px 16px;
-      background: rgba(0,0,0,.18);
+      background: rgba(255,255,255,.02);
       position: sticky;
       top:0;
-      backdrop-filter: blur(10px);
-      z-index: 2;
     }
     tbody td{
       padding: 14px 16px;
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255,255,255,.06);
       font-size: 14px;
-      color: rgba(255,255,255,.86);
+      color: rgba(230,233,239,.92);
       white-space: nowrap;
     }
-    tbody tr{
-      transition: background .12s ease;
-    }
-    tbody tr:hover{
-      background: rgba(255,255,255,.05);
-    }
-
-    .rank{
-      font-variant-numeric: tabular-nums;
-      color: rgba(255,255,255,.70);
-    }
-    .player{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      max-width: 380px;
-    }
-    .badge{
-      width: 10px; height: 10px;
-      border-radius:999px;
-      background: linear-gradient(135deg, var(--brand1), var(--brand2));
-      box-shadow: 0 0 18px rgba(255,45,85,.25);
-      flex: 0 0 auto;
-    }
-    .name{
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .muted{color: rgba(255,255,255,.62)}
-    .mono{font-variant-numeric: tabular-nums; font-feature-settings:"tnum" 1;}
-    .gsi{
-      font-weight:700;
-      color: transparent;
-      background: linear-gradient(135deg, var(--brand1), var(--brand2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-align:right;
-    }
+    tbody tr:hover{background: rgba(255,255,255,.03)}
     .right{text-align:right}
-
+    .mono{font-variant-numeric: tabular-nums; font-feature-settings:"tnum" 1;}
+    .gsi{font-weight:800; color: var(--accent)}
     .footer{
-      margin-top:14px;
-      color: rgba(255,255,255,.50);
+      margin-top: 14px;
+      color: rgba(154,163,178,.85);
       font-size: 12px;
-      line-height: 1.5;
-      padding: 0 6px;
+      line-height: 1.55;
+      padding: 0 4px;
     }
-    .footer a{color: rgba(255,255,255,.72); text-decoration:none; border-bottom:1px solid rgba(255,255,255,.22)}
-    .footer a:hover{color: rgba(255,255,255,.92)}
-    .hr{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 10px 0;
-    }
-
-    .toast{
-      position: fixed;
-      bottom: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.86);
-      padding: 10px 12px;
-      border-radius: 14px;
-      backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
-      font-size: 13px;
-      display:none;
-      z-index: 9998;
-    }
-
-    @media (max-width: 720px){
-      table{min-width: 720px;}
-      .sub{max-width: 48ch}
-    }
+    .footer a{color: rgba(230,233,239,.9); border-bottom:1px solid rgba(255,255,255,.18)}
+    code{background: rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10); padding:2px 6px; border-radius: 8px}
   </style>
 </head>
 
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="toast" id="toast"></div>
-
-  <!-- NAVIGATION START -->
-  <nav style="width:min(1100px,92vw);margin:18px auto 0;display:flex;gap:14px;align-items:center;justify-content:space-between;">
-    <div style="display:flex;gap:12px;align-items:center;">
-      <a href="./index.html" style="color:rgba(255,255,255,.9);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);">Demo</a>
-      <a href="./community.html" style="color:rgba(255,255,255,.78);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);">Community Ladder (EU)</a>
-      <a href="./dashboard.html" style="color:rgba(255,255,255,.78);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);">My Stats (Login)</a>
-    </div>
-
-    <div style="display:flex;gap:10px;align-items:center;">
-      <span style="font-size:12px;color:rgba(255,255,255,.55);">Coach tips require Riot Login (RSO)</span>
-      <a href="./dashboard.html" style="padding:8px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.18);color:rgba(255,255,255,.9);text-decoration:none;">
-        Login
-      </a>
-    </div>
-  </nav>
-
   <div class="wrap">
-    <header>
+    <div class="topbar">
       <div class="brand">
-        <div class="logo">
-          <div class="mark"></div>
-          <div>
-            <h1>AimForge — Performance Insights (EU Demo)</h1>
-
-<p class="sub">
-    EU Demo powered by official Riot Act leaderboard data.
-    AimForge provides read-only performance insights and coaching analytics.
-    Any rankings shown are community-based and opt-in only —
-    not an alternative to Riot’s official ranked ladder.
-</p>
-
-          </div>
+        <div class="mark"></div>
+        <div>
+          <div class="name">AimForge</div>
+          <div class="sub">Performance Insights • EU Demo</div>
         </div>
-
-        <div class="pillbar">
-    <span class="pill"><strong>Region:</strong> EU</span>
-    <span class="pill"><strong>Mode:</strong> Leaderboard Demo</span>
-    <span class="pill">Coming: Riot Login (RSO)</span>
-    <span class="pill">EU Act: <span id="actId" class="muted">—</span></span>
-</div>
-
-      </div>
-    </header>
-
-    <div class="card">
-      <div class="controls">
-        <div class="input" data-hover>
-          <span class="muted" style="font-size:13px;">🔎</span>
-          <input id="q" placeholder="Spieler suchen… (z.B. kozz, #tag, team)" />
-        </div>
-
-        <button class="btn" id="sortRR" data-hover>Sort: RR</button>
-        <button class="btn" id="sortWins" data-hover>Sort: Wins</button>
-        <button class="btn primary" id="sortGSI" data-hover>Sort: GSI</button>
       </div>
 
-      <div class="tablewrap">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:70px;">#</th>
-              <th>Player</th>
-              <th class="right" style="width:120px;">RR</th>
-              <th class="right" style="width:120px;">Wins</th>
-              <th class="right" style="width:140px;">GSI</th>
-            </tr>
-          </thead>
-          <tbody id="rows">
-            <tr><td class="muted" colspan="5" style="padding:18px 16px;">Loading…</td></tr>
-          </tbody>
-        </table>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <div class="nav">
+          <a href="./index.html">Demo</a>
+          <a href="./community.html">Community Ladder (EU)</a>
+          <a href="./dashboard.html">My Stats (Login)</a>
+        </div>
+        <a class="btn primary" href="./dashboard.html">Login</a>
       </div>
     </div>
 
-    <div style="margin-top:10px;">
-    <a href="privacy.html" style="color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);margin-right:15px;">
-        Privacy Policy
-    </a>
+    <div class="hero">
+      <div>
+        <h1>Performance Insights (EU Demo)</h1>
+        <p class="lead">
+          Demo uses official Act leaderboard data. AimForge provides read-only analytics and coaching.
+          Any rankings are community-based and opt-in only — not an alternative to Riot’s official ranked ladder.
+        </p>
+        <div class="metaRow">
+          <span class="chip">Region: EU</span>
+          <span class="chip">Mode: Demo</span>
+          <span class="chip">Coming: Riot Login (RSO)</span>
+          <span class="chip">Coming: Coach Plans</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="./dashboard.html">View Coach Preview</a>
+        <a class="btn" href="./community.html">Community Ladder</a>
+      </div>
+    </div>
 
-    <a href="terms.html" style="color:rgba(255,255,255,.8);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.25);">
-        Terms of Service
-    </a>
-</div>
+    <div class="grid">
+      <div class="card">
+        <div class="klabel">Demo dataset</div>
+        <div class="kval mono" id="kPlayers">—</div>
+        <div class="kdesc">Players loaded from <code>gsi_top100.json</code> on GitHub Pages.</div>
+      </div>
+      <div class="card">
+        <div class="klabel">Top GSI</div>
+        <div class="kval mono accent" id="kTopGsi">—</div>
+        <div class="kdesc">Preview metric (demo only). Full coaching metrics after opt-in login.</div>
+      </div>
+      <div class="card">
+        <div class="klabel">Act</div>
+        <div class="kval mono" id="kAct">EU (Demo)</div>
+        <div class="kdesc">Official Act leaderboard is used for demo data sourcing.</div>
+      </div>
+    </div>
 
+    <div class="sectionTitle">
+      <h2>EU Demo Leaderboard</h2>
+      <div class="small">Search + sort. Clean, data-first.</div>
+    </div>
 
-<div style="opacity:.85;margin-top:8px;">
-    Riot Games, VALORANT, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
-</div>
+    <div class="controls">
+      <div class="search">
+        <span style="color:var(--muted);font-size:13px;">Search</span>
+        <input id="q" placeholder="Player name or #tag…" />
+      </div>
+      <button class="btn" id="sortRR">Sort RR</button>
+      <button class="btn" id="sortWins">Sort Wins</button>
+      <button class="btn primary" id="sortGSI">Sort GSI</button>
+    </div>
 
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:70px;">#</th>
+            <th>Player</th>
+            <th class="right" style="width:120px;">RR</th>
+            <th class="right" style="width:120px;">Wins</th>
+            <th class="right" style="width:140px;">GSI</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <tr><td colspan="5" style="padding:18px 16px;color:var(--muted)">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
 
+    <div class="footer">
+      <div style="margin-top:10px;">
+        <a href="privacy.html" style="margin-right:14px;">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div style="margin-top:8px;">
+        AimForge is not endorsed by Riot Games. AimForge is read-only and does not interact with the game client, does not read memory, and does not bypass Vanguard.
+      </div>
+      <div style="margin-top:6px; opacity:.9;">
+        Riot Games, VALORANT, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+      </div>
+    </div>
+  </div>
 
   <script>
-    // ---------- Custom Cursor ----------
-    const cursor = document.getElementById("cursor");
-    const dot = document.getElementById("cursorDot");
-
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let cx = mx, cy = my;
-
-    window.addEventListener("mousemove", (e) => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + "px";
-      dot.style.top = my + "px";
-    });
-
-    function tick(){
-      cx += (mx - cx) * 0.12;
-      cy += (my - cy) * 0.12;
-      cursor.style.left = cx + "px";
-      cursor.style.top = cy + "px";
-      requestAnimationFrame(tick);
-    }
-    tick();
-
-    // hover grow
-    function setHover(on){ cursor.classList.toggle("is-hover", on); }
-    document.querySelectorAll("[data-hover]").forEach(el=>{
-      el.addEventListener("mouseenter", ()=>setHover(true));
-      el.addEventListener("mouseleave", ()=>setHover(false));
-    });
-
-    // ---------- UI ----------
     const rowsEl = document.getElementById("rows");
     const qEl = document.getElementById("q");
-    const actEl = document.getElementById("actId");
-    const toast = document.getElementById("toast");
-
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.style.display = "block";
-      clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=>toast.style.display="none", 2200);
-    }
+    const kPlayers = document.getElementById("kPlayers");
+    const kTopGsi = document.getElementById("kTopGsi");
+    const kAct = document.getElementById("kAct");
 
     let players = [];
-    let sortMode = "gsi"; // gsi | rr | wins
+    let sortMode = "gsi";
 
     function normalize(s){ return (s||"").toString().toLowerCase().trim(); }
 
@@ -441,80 +285,59 @@
       const q = normalize(qEl.value);
       let list = players.filter(p=>{
         if(!q) return true;
-        const hay = normalize(`${p.gameName}#${p.tagLine} ${p.leaderboardRank} ${p.rankedRating} ${p.wins} ${p.gsi}`);
+        const hay = normalize(`${p.gameName}#${p.tagLine} ${p.rankedRating} ${p.wins} ${p.gsi}`);
         return hay.includes(q);
       });
 
       list.sort((a,b)=>{
-        if(sortMode==="rr") return (b.rankedRating||0) - (a.rankedRating||0);
-        if(sortMode==="wins") return (b.wins||0) - (a.wins||0);
-        return (b.gsi||0) - (a.gsi||0);
+        if(sortMode==="rr") return (b.rankedRating||0)-(a.rankedRating||0);
+        if(sortMode==="wins") return (b.wins||0)-(a.wins||0);
+        return (b.gsi||0)-(a.gsi||0);
       });
 
       if(list.length === 0){
-        rowsEl.innerHTML = `<tr><td class="muted" colspan="5" style="padding:18px 16px;">Keine Treffer.</td></tr>`;
+        rowsEl.innerHTML = `<tr><td colspan="5" style="padding:18px 16px;color:var(--muted)">No results.</td></tr>`;
         return;
       }
 
       rowsEl.innerHTML = list.map((p, idx)=>`
-        <tr data-hover>
-          <td class="rank mono">${idx+1}</td>
-          <td>
-            <div class="player">
-              <span class="badge"></span>
-              <span class="name">${p.gameName}<span class="muted">#${p.tagLine}</span></span>
-            </div>
-          </td>
+        <tr>
+          <td class="mono" style="color:var(--muted)">${idx+1}</td>
+          <td>${p.gameName}<span style="color:var(--muted)">#${p.tagLine}</span></td>
           <td class="right mono">${p.rankedRating ?? "-"}</td>
           <td class="right mono">${p.wins ?? "-"}</td>
           <td class="right mono gsi">${p.gsi ?? "-"}</td>
         </tr>
       `).join("");
-
-      // add hover grow to new rows
-      document.querySelectorAll("tbody tr[data-hover]").forEach(el=>{
-        el.addEventListener("mouseenter", ()=>setHover(true));
-        el.addEventListener("mouseleave", ()=>setHover(false));
-      });
     }
 
-    // ---------- Data Load ----------
     async function load(){
       try{
-        // GitHub Pages Demo: expects gsi_top100.json in the repo root
         const res = await fetch("gsi_top100.json", { cache: "no-store" });
-        if(!res.ok) throw new Error("Demo JSON not found yet (gsi_top100.json).");
+        if(!res.ok) throw new Error("gsi_top100.json missing");
         const data = await res.json();
-
-        // Accept either {players:[...]} or [...]. We use the array format from build_gsi.py.
         players = Array.isArray(data) ? data : (data.players || []);
-        actEl.textContent = "EU (Demo)";
-        showToast("Demo geladen ✔");
+
+        kPlayers.textContent = players.length ? players.length : "—";
+        const top = players.reduce((m,p)=>Math.max(m, Number(p.gsi||0)), 0);
+        kTopGsi.textContent = top ? top.toFixed(2) : "—";
+        kAct.textContent = "EU (Demo)";
         render();
-      }catch(err){
-        rowsEl.innerHTML = `<tr><td class="muted" colspan="5" style="padding:18px 16px;">
-          Konnte Demo-Daten nicht laden. Nächster Schritt: <code>gsi_top100.json</code> ins Repo hochladen.
-          <br/><span style="opacity:.6">${err.message}</span>
+      }catch(e){
+        rowsEl.innerHTML = `<tr><td colspan="5" style="padding:18px 16px;color:var(--muted)">
+          Could not load demo data (<code>gsi_top100.json</code>).
         </td></tr>`;
-        actEl.textContent = "—";
-        showToast("Demo fehlt (gsi_top100.json)");
+        kPlayers.textContent = "—";
+        kTopGsi.textContent = "—";
       }
     }
 
-    // Controls
     qEl.addEventListener("input", render);
-    document.getElementById("sortRR").addEventListener("click", ()=>{ sortMode="rr"; showToast("Sort: RR"); render(); });
-    document.getElementById("sortWins").addEventListener("click", ()=>{ sortMode="wins"; showToast("Sort: Wins"); render(); });
-    document.getElementById("sortGSI").addEventListener("click", ()=>{ sortMode="gsi"; showToast("Sort: GSI"); render(); });
+    document.getElementById("sortRR").addEventListener("click", ()=>{ sortMode="rr"; render(); });
+    document.getElementById("sortWins").addEventListener("click", ()=>{ sortMode="wins"; render(); });
+    document.getElementById("sortGSI").addEventListener("click", ()=>{ sortMode="gsi"; render(); });
 
     load();
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
