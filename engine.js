@@ -57,3 +57,45 @@ function normalize(value, min, max) {
 function round(num) {
     return Math.round(num * 100) / 100;
 }
+// =============================
+// Rank Projection System
+// =============================
+
+export function projectRank(player, profile) {
+
+    const growthRate = estimateGrowth(player);
+    const targetGSI = getNextRankThreshold(profile.gsi);
+
+    const daysToRank = estimateDays(profile.gsi, targetGSI, growthRate);
+
+    return {
+        nextRankTarget: targetGSI,
+        estimatedDays: daysToRank,
+        growthRate: round(growthRate)
+    };
+}
+
+function estimateGrowth(p) {
+    // Simplified growth formula
+    const disciplineFactor = normalize(p.consistency, 0, 100);
+    const trainingFactor = normalize(p.headshot, 5, 30);
+
+    return (disciplineFactor * 0.6) + (trainingFactor * 0.4);
+}
+
+function getNextRankThreshold(currentGSI) {
+    const ranks = [600, 750, 900, 1050, 1200];
+    for (let r of ranks) {
+        if (currentGSI < r) return r;
+    }
+    return 1400;
+}
+
+function estimateDays(current, target, growth) {
+    if (growth <= 0) return null;
+
+    const gap = target - current;
+    const progressPerDay = growth * 0.5;
+
+    return Math.ceil(gap / progressPerDay);
+}
